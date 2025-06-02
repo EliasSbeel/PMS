@@ -1,0 +1,73 @@
+@model PMS.Models.Product
+@{
+    ViewData["Title"] = (Model?.Id > 0 ? "Edit" : "Add New") + " Product";
+    Layout = "_Layout";
+}
+
+<h2 class="mb-4 fw-bold" id="formTitle">@(Model?.Id > 0 ? "✏️ Edit Product" : "➕ Add New Product")</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="Home" asp-action="SaveProduct" method="post">
+            @Html.AntiForgeryToken() 
+
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="productName"
+                    asp-for="ProductName"
+                    placeholder="Enter product name"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="productCategory" class="form-label"
+                    >Product Category</label
+                >
+                <input
+                    type="text"
+                    class="form-control"
+                    id="productCategory"
+                    asp-for="ProductCategory"
+                    placeholder="Enter product category"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="stockQuantity" class="form-label"
+                    >Stock Quantity</label
+                >
+                <input
+                    type="number"
+                    class="form-control"
+                    id="stockQuantity"
+                    asp-for="StockQuantity"
+                    placeholder="Enter stock quantity"
+                    required
+                />
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input
+                    type="number"
+                    class="form-control"
+                    id="price"
+                    asp-for="Price"
+                    placeholder="Enter price"
+                    required
+                />
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary" id="add">
+                    @(Model?.Id > 0 ? "Update Product" : "Add Product")
+                </button>
+                <a asp-controller="Home" asp-action="Products" class="btn btn-secondary"
+                    >Cancel</a> 
+                <a asp-controller="Home" asp-action="Products" class="btn btn-outline-secondary"
+                    >Back to Products</a>
+            </div>
+        </form>
+    </div>
+</div>

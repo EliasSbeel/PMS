@@ -1,0 +1,157 @@
+@{
+    ViewData["Title"] = "Create Account";
+    Layout = null; 
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Create Account</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .signup-container {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        width: 100%;
+        max-width: 400px;
+      }
+      .form-control {
+        border-radius: 0.25rem;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+      .back-arrow {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <a asp-controller="Home" asp-action="Login" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+    <div class="signup-container">
+      <h5 class="text-center text-muted fw-semibold">Admin Panel</h5>
+      <h3 class="mb-4 fw-bold">Create Account</h3>
+      <form asp-controller="Home" asp-action="SignUp" method="post">
+        <div class="mb-3">
+          <label for="fullName" class="form-label visually-hidden"
+            >Full Name</label
+          >
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            id="signupFullName"
+            name="fullName"
+            placeholder="Full Name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label visually-hidden">Email</label>
+          <input
+            type="email"
+            class="form-control form-control-lg"
+            id="signupEmail"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label visually-hidden"
+            >Password</label
+          >
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            id="signupPassword"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="mb-4">
+          <label for="confirmPassword" class="form-label visually-hidden"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control form-control-lg"
+            id="signupConfirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100 btn-lg" id="signupBtn">
+          Sign Up
+        </button>
+        <p class="text-center mt-3">
+          Already have an account? <a asp-controller="Home" asp-action="Login">Login</a>
+        </p>
+      </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var errorMessage = '@TempData["ErrorMessage"]';
+            var successMessage = '@TempData["SuccessMessage"]';
+
+            if (errorMessage) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Signup Failed',
+                    text: errorMessage,
+                    showConfirmButton: true
+                });
+            }
+            else  (successMessage) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Account Created!',
+                    text: successMessage,
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    // Redirect is handled by the controller, but keeping this for immediate feedback if needed.
+                });
+            }
+        });
+    </script>
+  </body>
+</html>

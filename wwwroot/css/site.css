@@ -1,0 +1,101 @@
+/* html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+} */
+
+
+
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fa;
+}
+.sidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+.sidebar-top-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-logout-section {
+    margin-top: auto;
+}
+.main-content {
+    padding: 2rem 3rem;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 4rem);
+}
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+.table-responsive {
+    background-color: #ffffff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    padding: 1rem;
+}
+
+/* Specific styles for login/signup pages */
+.login-container, .signup-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    width: 100%;
+    max-width: 400px;
+}
+.form-control {
+    border-radius: 0.25rem;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.back-arrow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
